@@ -1,1 +1,22 @@
-<h6>MENU</h6>
+<h6>Template Form</h6>
+
+<ul class="list-group">
+    <li *ngFor="let item of arrTemplateMenuItems"
+        class="list-group-item"
+        [routerLink]="item.ruta"
+        routerLinkActive="active">
+        {{item.texto}}
+    </li>
+</ul>
+<hr>
+
+<h6>Reactivos Form</h6>
+
+<ul class="list-group">
+    <li *ngFor="let item of arrReactiveMenuItems"
+        class="list-group-item"
+        [routerLink]="item.ruta"
+        routerLinkActive="active">
+        {{item.texto}}
+    </li>
+</ul>

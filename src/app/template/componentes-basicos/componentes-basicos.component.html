@@ -1,0 +1,87 @@
+<h2>Template Básicos</h2>
+
+<div class="row">
+    <div class="col">
+        <form action=""
+              (ngSubmit)="guardar()"
+              #miForm="ngForm">
+
+            <div class="row mb-3">
+                <label for="prod"
+                       class="col-sm-2 col-form-label">Producto</label>
+                <div class="col-sm-6">
+
+                    <input id="prod"
+                           name="pro"
+                           ngModel
+                           type="text"
+                           class="form-control"
+                           placeholder="Nombre producto"
+                           required
+                           minlength="3">
+                    <!-- 1ra forma de validar campos-->
+                    <!-- <small class="text-danger"
+                           *ngIf="miForm.touched && !miForm.valid"> -->
+                    <small class="text-danger"
+                           *ngIf="validarCampos() || false">
+                        Debe ser de 3 letras
+                    </small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="precio"
+                       class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm-6">
+                    <input id="precio"
+                           name="pre"
+                           ngModel
+                           type="number"
+                           class="form-control"
+                           placeholder="Precio producto"
+                           min="0">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="existencia"
+                       class="col-sm-2 col-form-label">Existencias</label>
+                <div class="col-sm-6">
+                    <input id="existencia"
+                           name="exi"
+                           ngModel
+                           type="text"
+                           class="form-control"
+                           placeholder="Existencias producto">
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <button class="btn btn-primary float-end"
+                                    type="submit">Guardar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        <span>Form Valido</span>
+        <pre>{{miForm.valid}}</pre>
+
+        <span>Prestine (Algún campo ha sido modificado)</span>
+        <pre>{{miForm.pristine}}</pre>
+
+        <span>Touched, el form ha sido tocado</span>
+        <pre>{{miForm.touched}}</pre>
+
+        <span>Valores del form en json</span>
+        <pre>{{miForm.value | json }}</pre>
+
+    </div>
+</div>

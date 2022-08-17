@@ -20,9 +20,18 @@ export class ComponentesBasicosComponent implements OnInit {
     // console.log(this.miForm.value);
   }
 
-  validarCampos():boolean | null {
-    console.log(this.miForm?.valid);
+  validarNombreProd(): boolean {
+    return this.miForm?.controls['pro']?.invalid
+      && this.miForm?.controls['pro'].touched;
+  }
 
-    return !this.miForm?.valid && this.miForm?.touched;
+  validarPrecio(): boolean {
+    // console.log(this.miForm?.controls['pre']?.value);
+   
+    if (this.miForm?.controls['pre']?.value <= 0
+      && this.miForm?.controls['pre']?.touched) {
+      return true;
+    }
+    return false;
   }
 }

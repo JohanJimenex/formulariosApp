@@ -23,8 +23,8 @@
                     <!-- <small class="text-danger"
                            *ngIf="miForm.touched && !miForm.valid"> -->
                     <small class="text-danger"
-                           *ngIf="validarCampos() || false">
-                        Debe ser de 3 letras
+                           *ngIf="validarNombreProd() || false">
+                        Debe tener minimo 3 letras
                     </small>
                 </div>
             </div>
@@ -40,6 +40,11 @@
                            class="form-control"
                            placeholder="Precio producto"
                            min="0">
+
+                    <small class="text-danger"
+                           *ngIf="validarPrecio()">
+                        El precio debe ser mayor a cero '0'
+                    </small>
                 </div>
             </div>
 
@@ -52,11 +57,16 @@
                            ngModel
                            type="text"
                            class="form-control"
-                           placeholder="Existencias producto">
+                           placeholder="Existencias producto"
+                           required
+                           type="number"
+                           DirectiPersonali
+                           [valorMinimo]="2">
 
                     <div class="row mt-3">
                         <div class="col">
-                            <button class="btn btn-primary float-end"
+                            <button [disabled]="miForm.invalid"
+                                    class="btn btn-primary float-end"
                                     type="submit">Guardar</button>
                         </div>
                     </div>
@@ -82,6 +92,9 @@
 
         <span>Valores del form en json</span>
         <pre>{{miForm.value | json }}</pre>
+
+        <span>Directiva personalizada</span>
+        <pre>{{miForm.controls['exi'].errors | json }}</pre>
 
     </div>
 </div>

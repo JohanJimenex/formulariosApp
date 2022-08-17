@@ -6,18 +6,20 @@ import { ComponentesBasicosComponent } from './componentes-basicos/componentes-b
 import { ComponentesDinamicosComponent } from './componentes-dinamicos/componentes-dinamicos.component';
 import { ComponentesSwitchesComponent } from './componentes-switches/componentes-switches.component';
 import { FormsModule } from '@angular/forms';
+import { DirectivaPersonalizada } from './directivas/custom-min.directive';
 
 
 @NgModule({
   declarations: [
     ComponentesBasicosComponent,
     ComponentesDinamicosComponent,
-    ComponentesSwitchesComponent
+    ComponentesSwitchesComponent,
+    DirectivaPersonalizada
   ],
   imports: [
     CommonModule,
     TemplateRoutingModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class TemplateModule { }

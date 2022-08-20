@@ -35,7 +35,7 @@
                 <div class="col-sm-6">
                     <input id="precio"
                            name="pre"
-                           ngModel
+                           [ngModel]="0"
                            type="number"
                            class="form-control"
                            placeholder="Precio producto"
@@ -54,7 +54,7 @@
                 <div class="col-sm-6">
                     <input id="existencia"
                            name="exi"
-                           ngModel
+                           [ngModel]="0"
                            type="text"
                            class="form-control"
                            placeholder="Existencias producto"
@@ -84,7 +84,7 @@
         <span>Form Valido</span>
         <pre>{{miForm.valid}}</pre>
 
-        <span>Prestine (Algún campo ha sido modificado)</span>
+        <span>Prestine (Los campos siguen intactos)</span>
         <pre>{{miForm.pristine}}</pre>
 
         <span>Touched, el form ha sido tocado</span>

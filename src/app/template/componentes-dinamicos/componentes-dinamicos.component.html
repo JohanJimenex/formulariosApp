@@ -1,1 +1,74 @@
-<p>componentes-dinamicos works!</p>
+<p>Template Dinamicos</p>
+<hr>
+
+<form action=""
+      (ngSubmit)="guardar()"
+      #miForm="ngForm">
+
+    <!-- Nombre -->
+    <div class="row mb-3">
+        <label for="nombre"
+               class="col-3 col-form-label">Nombre</label>
+        <div class="col-9">
+            <input type="text"
+                   class="form-control"
+                   placeholder="nombre"
+                   name="nombre"
+                   [(ngModel)]="persona.nombre"
+                   required>
+
+            <small class="text-danger"
+                   *ngIf="miForm?.invalid && miForm?.touched">
+                Este campo es obligatoriop
+            </small>
+        </div>
+    </div>
+
+    <!-- Agregar -->
+    <div class="row mb-3">
+        <label for="nombre"
+               class="col-3 col-form-label">Agregar</label>
+        <div class="col-9">
+
+            <div class="input-group">
+                <input type="text"
+                       class="form-control"
+                       name="fav"
+                       [(ngModel)]="favorito.nombre"
+                       placeholder="gregar">
+
+                <button type="button"
+                        class="btn btn-outline-primary"
+                        (click)="agregar()">Agregar</button>
+            </div>
+
+            <div class="input-group mt-1"
+                 *ngFor="let favorito of persona.favoritos">
+
+                <input type="text"
+                       class="form-control "
+                       [name]="favorito.nombre"
+                       [(ngModel)]="favorito.nombre">
+                <button type="button"
+                        class="btn btn-outline-danger"
+                        (click)="eliminar(favorito)">X</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-end"
+                    [disabled]="miForm?.invalid"
+                    (click)="guardar()"
+                    type='button'>Guardar</button>
+        </div>
+    </div>
+</form>
+
+<span>Persona</span>
+<pre>
+    {{persona | json}}
+</pre>

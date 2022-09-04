@@ -36,7 +36,7 @@ export class ComponentesDinamicosComponent {
   }
 
   favorito: Favoritos = {
-    id: this.persona.favoritos.length + 1,
+    id: 0,
     nombre: ''
   }
 
@@ -52,6 +52,7 @@ export class ComponentesDinamicosComponent {
   }
 
   agregar(): void {
+    this.favorito.id = this.persona.favoritos.length + 1
     this.persona.favoritos.push(this.favorito);
 
     this.favorito = { id: 0, nombre: '' }

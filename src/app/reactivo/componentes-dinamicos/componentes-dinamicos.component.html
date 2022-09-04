@@ -1,1 +1,86 @@
-<p>klk</p>
+<p>Reactivo Dinamicos</p>
+<hr>
+
+<form [formGroup]="miForm"
+      autocomplete="off"
+      (ngSubmit)="guardar()">
+
+    <!-- Nombre -->
+    <div class="row mb-3">
+        <label for="nombre"
+               class="col-3 col-form-label">Nombre</label>
+        <div class="col-9">
+
+            <input formControlName="nombreProducto"
+                   type="text"
+                   class="form-control"
+                   placeholder="nombre">
+
+            <small *ngIf="validarCampo('nombreProducto')"
+                   class="text-danger">
+                Este campo es obligatoriop
+            </small>
+        </div>
+    </div>
+
+    <!-- Agregar -->
+    <div class="row mb-3">
+        <label for="nombre"
+               class="col-3 col-form-label">Juegos Favoritos</label>
+
+        <div class="col-9">
+            <div class="input-group">
+                <input type="text"
+                       id="nombre"
+                       class="form-control"
+                       placeholder="nombre"
+                       [formControl]="agregarFavorito"
+                       (keyup.enter)="agregar()">
+
+                <button type="button"
+                        [disabled]="this.agregarFavorito.invalid"
+                        class="btn btn-outline-primary"
+                        (click)="agregar()">Agregar</button>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <!-- indica que viene un arreglo de form -->
+    <div formArrayName="juegosFavoritos">
+
+        <div *ngFor="let item of arrFavoritos.controls; let i = index"
+             class="input-group mt-1">
+
+            <input type="text"
+                   class="form-control"
+                   formControlName="{{i}}">
+
+            <button type="button"
+                    class="btn btn-outline-danger"
+                    (click)="eliminar(i)">X</button>
+        </div>
+
+    </div>
+    <div class="row my-3">
+        <div class="col">
+            <button (click)="guardar()"
+                    class="btn btn-secondary"
+                    type='button'>Guardar 1</button>
+
+            <button type='submit'
+                    class="btn btn-primary float-end">Guardar 2</button>
+        </div>
+    </div>
+</form>
+<br>
+<p>Persona</p>
+
+<pre>
+   {{ miForm.value | json}}
+
+   es valido: {{miForm.valid  | json}}
+   es invalido: {{miForm.invalid  | json}}
+</pre>

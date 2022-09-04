@@ -1,1 +1,88 @@
-<p>Reactivos -basicos works!</p>
+<h2>Reactivo Básicos</h2>
+
+<div class="row">
+    <div class="col">
+        <form [formGroup]="miForm" (ngSubmit)="guardar()" autocomplete="off">
+
+            <div class="row mb-3">
+                <label for="prod"
+                       class="col-sm-2 col-form-label">Producto</label>
+                <div class="col-sm-6">
+
+                    <input formControlName="nombreProducto"
+                           type="text"
+                           class="form-control"
+                           placeholder="Nombre producto">
+                    <!-- 1ra forma de validar campos-->
+                    <!-- <small class="text-danger"
+                           *ngIf="miForm.touched && !miForm.valid"> -->
+                    <small *ngIf="validarCampo('nombreProducto')"
+                           class="text-danger">
+                        Debe tener minimo 3 letras
+                    </small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="precio"
+                       class="col-sm-2 col-form-label">Precio</label>
+
+                <div class="col-sm-6">
+                    <input formControlName="precio"
+                           id="precio"
+                           type="number"
+                           class="form-control"
+                           placeholder="Precio producto">
+
+                    <small *ngIf="validarCampo('precio')"
+                           class="text-danger">
+                        El precio debe ser mayor a cero '0'
+                    </small>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="existencia"
+                       class="col-sm-2 col-form-label">Existencias</label>
+                <div class="col-sm-6">
+                    <input formControlName="existencias"
+                           id="existencia"
+                           type="text"
+                           class="form-control"
+                           placeholder="Existencias producto"
+                           type="number">
+
+                    <div class="row mt-3">
+                        <div class="col">
+                            <!-- [disabled]="miForm.invalid" -->
+                            <button 
+                                    class="btn btn-primary float-end"
+                                    type="submit">Guardar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col">
+
+        <span>Form Valido</span>
+        <pre>{{miForm.valid}}</pre>
+
+        <span>Prestine (Los campos siguen intactos)</span>
+        <pre>{{miForm.pristine}}</pre>
+
+        <span>Touched, el form ha sido tocado</span>
+        <pre>{{miForm.touched}}</pre>
+
+        <span>Valores del form en json</span>
+        <pre>{{miForm.value | json }}</pre>
+
+    </div>
+</div>

@@ -16,16 +16,21 @@ export class SideMenuComponent {
 
 
   arrTemplateMenuItems: MenuItem[] = [
-    {texto:'Basic', ruta:'template/basicos'},
-    {texto:'Dinamic', ruta:'template/dinamicos'},
-    {texto:'Switches', ruta:'template/switches'},
+    { texto: 'Basic', ruta: 'template/basicos' },
+    { texto: 'Dinamic', ruta: 'template/dinamicos' },
+    { texto: 'Switches', ruta: 'template/switches' },
   ];
 
 
   arrReactiveMenuItems: MenuItem[] = [
-    {texto:'Basic', ruta:'reactivo/basicos'},
-    {texto:'Dinamic', ruta:'reactivo/dinamicos'},
-    {texto:'Switches', ruta:'reactivo/switches'},
+    { texto: 'Basic', ruta: 'reactivo/basicos' },
+    { texto: 'Dinamic', ruta: 'reactivo/dinamicos' },
+    { texto: 'Switches', ruta: 'reactivo/switches' },
+  ];
+
+  arrValidacionMenuItems: MenuItem[] = [
+    { texto: 'Registro', ruta: 'validaciones/registro' },
+    { texto: 'Login', ruta: 'validaciones/login' },
   ];
 
 

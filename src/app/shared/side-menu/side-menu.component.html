@@ -20,3 +20,15 @@
         {{item.texto}}
     </li>
 </ul>
+
+<hr>
+<h6>Validaciones Personalizadas</h6>
+
+<ul class="list-group">
+    <li *ngFor="let item of arrValidacionMenuItems"
+        class="list-group-item"
+        [routerLink]="item.ruta"
+        routerLinkActive="active">
+        {{item.texto}}
+    </li>
+</ul>

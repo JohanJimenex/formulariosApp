@@ -1,7 +1,4 @@
-*{
-    color: white !important;
-}
-
-input:disabled{
+input:disabled {
     background-color: rgb(88, 88, 88) !important;
+    color: rgb(166, 165, 165);
 }

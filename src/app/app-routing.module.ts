@@ -12,13 +12,20 @@ const routes: Routes = [
     loadChildren: () => import('./reactivo/reactivo.module').then(m => m.ReactivoModule)
   },
   {
-    path:'**',
-    redirectTo:'template'
+    path: 'validaciones',
+    loadChildren: () => import('./validaciones/validaciones.module').then(m => m.ValidacionesModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'template'
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), TemplateModule],
+  imports: [
+    RouterModule.forRoot(routes),
+    TemplateModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-componentes-switches',
   templateUrl: './componentes-switches.component.html'
 })
-export class ComponentesSwitchesComponent implements OnInit {
+export class ComponentesSwitchesComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  persona: any = {
+    genero: '',
+    notificaciones: true
   }
+  terminosCondiciones: boolean = true;
 
 }

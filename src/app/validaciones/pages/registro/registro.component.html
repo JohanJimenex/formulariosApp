@@ -47,7 +47,13 @@
 
                      <input type="text"
                             id="usuario"
+                            formControlName="usuario"
                             class="col-sm-9">
+
+                     <small class="text-danger"
+                            *ngIf="miFormulario.controls['usuario'].errors">
+                     El usuario ya existe
+                     </small>
 
               </div>
 
@@ -83,7 +89,8 @@
 
 <small>Form Valido: {{miFormulario.valid}}</small> <br>
 <small>
-       Errores: {{miFormulario.controls['nombre'].errors | json}}
-       Errores: {{miFormulario.controls['email'].errors | json}}
+       Errores nombre: {{miFormulario.controls['nombre'].errors | json}} <br>
+       Errores email: {{miFormulario.controls['email'].errors | json}} <br>
+       Errores usuario: {{miFormulario.controls['usuario'].errors | json}} <br>
 
 </small>

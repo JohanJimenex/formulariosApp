@@ -8,17 +8,21 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class ComponentesBasicosComponent implements OnInit {
 
   ngOnInit(): void {
-    this.miForm.setValue({
-      nombreProducto: 'valor por defecto',
-      precio: 1,
-      existencias: 2
-    })
+    // this.miForm.setValue({
+    //   nombreProducto: 'valor por defecto',
+    //   precio: 1,
+    //   existencias: 2
+    // })
   }
+
+  //Si queremos solo un input, o separado, el input debe tener el atributo formContrl
+  // nombreProducto: FormControl = new FormControl('wii');
+
 
   //Forma 1 para trabajar con formulario reactivos:
   // miForm: FormGroup = new FormGroup({
   //   //Esta propiedad debe ser igual al del input en el atributo formControlName
-  
+
   //   nombreProducto: new FormControl('Macbook pro', [Validators.required, Validators.minLength(3)]),
   //   precio: new FormControl('0.00'),
   //   existencias: new FormControl(5)

@@ -11,12 +11,14 @@ export class ComponentesBasicosComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  //Viene un objeto tipo json con todos los campos del formulario
+  //Guardamos la referencia del formulario en la variable miForm
+  //Tiene todas las propiedades del form
   @ViewChild('miForm') miForm!: NgForm;
 
-  // guardar(miForm: NgForm) {
+  // guardar(miForm: NgForm) { //otra forma para enviar el form desde el template
   guardar() {
 
+    //Reseteamo los valores del campo precio y existencia
     this.miForm?.resetForm({
       pre: 0,
       exi: 0 

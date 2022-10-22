@@ -4,7 +4,7 @@
 <div class="row">
        <col>
        <form action=""
-             autocomplete="off"
+             autocomplete="false"
              [formGroup]="miFormulario">
               <!-- Nombre -->
               <div class="row mb-3">
@@ -52,7 +52,7 @@
 
                      <small class="text-danger"
                             *ngIf="miFormulario.controls['usuario'].errors">
-                     El usuario ya existe
+                            El usuario ya existe
                      </small>
 
               </div>
@@ -64,18 +64,30 @@
 
                      <input type="password"
                             id="password"
+                            formControlName="password"
                             class="col-sm-9">
               </div>
+
+              <small class="text-danger"
+                     *ngIf="miFormulario.controls['password'].errors">
+                     La clave debe ser mayor a 6 digitos
+              </small>
 
               <!-- password2 -->
               <div class="row mb-3">
-                     <label for="password2"
+                     <label for="confirmarPassword"
                             class="col-sm-3">Confirmar password</label>
 
                      <input type="password"
-                            id="password2"
+                            id="confirmarPassword"
+                            formControlName="confirmarPassword"
                             class="col-sm-9">
               </div>
+
+              <small class="text-danger"
+                     *ngIf="miFormulario.controls['confirmarPassword'].errors">
+                     Las claves no son iguales
+              </small>
 
               <div class="row">
                      <div class="col">
@@ -87,10 +99,16 @@
        </form>
 </div>
 
-<small>Form Valido: {{miFormulario.valid}}</small> <br>
 <small>
-       Errores nombre: {{miFormulario.controls['nombre'].errors | json}} <br>
-       Errores email: {{miFormulario.controls['email'].errors | json}} <br>
-       Errores usuario: {{miFormulario.controls['usuario'].errors | json}} <br>
+
+       <b> Form Valido: </b> {{miFormulario.valid}} <br>
+       <b> Form Errores Globales:</b> {{miFormulario.errors | json}} <br>
+
+       <strong>Errores nombre:</strong> {{miFormulario.controls['nombre'].errors | json}} <br>
+       <strong>Errores email:</strong> {{miFormulario.controls['email'].errors | json}} <br>
+       <strong>Errores usuario:</strong> {{miFormulario.controls['usuario'].errors | json}} <br>
+       <strong>Errores Password:</strong> {{miFormulario.controls['password'].errors | json}} <br>
+       <strong>Errores confirmarPassword:</strong> {{miFormulario.controls['confirmarPassword'].errors | json}}
+       <br>
 
 </small>

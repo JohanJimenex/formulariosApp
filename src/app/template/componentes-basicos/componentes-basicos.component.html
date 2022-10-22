@@ -2,72 +2,46 @@
 
 <div class="row">
     <div class="col">
-        <form action=""
-              (ngSubmit)="guardar()"
-              #miForm="ngForm">
+        <!-- Agregamos un identificador al form el cual es de tipo ngForm -->
+        <form action="" (ngSubmit)="guardar()" #miForm="ngForm">
 
             <div class="row mb-3">
-                <label for="prod"
-                       class="col-sm-2 col-form-label">Producto</label>
+                <label for="prod" class="col-sm-2 col-form-label">Producto</label>
                 <div class="col-sm-6">
-
-                    <input id="prod"
-                           name="pro"
-                           ngModel
-                           type="text"
-                           class="form-control"
-                           placeholder="Nombre producto"
-                           required
-                           minlength="3">
+                        
+                    <input ngModel id="prod" name="pro" type="text" class="form-control" placeholder="Nombre producto"
+                        required minlength="3">
                     <!-- 1ra forma de validar campos-->
                     <!-- <small class="text-danger"
                            *ngIf="miForm.touched && !miForm.valid"> -->
-                    <small class="text-danger"
-                           *ngIf="validarNombreProd() || false">
+                    <small class="text-danger" *ngIf="validarNombreProd() || false">
                         Debe tener minimo 3 letras
                     </small>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="precio"
-                       class="col-sm-2 col-form-label">Precio</label>
+                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-6">
-                    <input id="precio"
-                           name="pre"
-                           [ngModel]="0"
-                           type="number"
-                           class="form-control"
-                           placeholder="Precio producto"
-                           min="0">
+                    <input id="precio" name="pre" [ngModel]="0" type="number" class="form-control"
+                        placeholder="Precio producto" min="0">
 
-                    <small class="text-danger"
-                           *ngIf="validarPrecio()">
+                    <small class="text-danger" *ngIf="validarPrecio()">
                         El precio debe ser mayor a cero '0'
                     </small>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <label for="existencia"
-                       class="col-sm-2 col-form-label">Existencias</label>
+                <label for="existencia" class="col-sm-2 col-form-label">Existencias</label>
                 <div class="col-sm-6">
-                    <input id="existencia"
-                           name="exi"
-                           [ngModel]="0"
-                           type="text"
-                           class="form-control"
-                           placeholder="Existencias producto"
-                           required
-                           type="number"
-                           DirectiPersonali
-                           [valorMinimo]="2">
+                    <input id="existencia" name="exi" [ngModel]="0" type="text" class="form-control"
+                        placeholder="Existencias producto" required type="number" DirectiPersonali [valorMinimo]="2">
 
                     <div class="row mt-3">
                         <div class="col">
-                            <button [disabled]="miForm.invalid"
-                                    class="btn btn-primary float-end"
-                                    type="submit">Guardar</button>
+                            <button [disabled]="miForm.invalid" class="btn btn-primary float-end"
+                                type="submit">Guardar</button>
                         </div>
                     </div>
 

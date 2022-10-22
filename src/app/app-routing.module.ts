@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'validaciones',
-    loadChildren: () => import('./validaciones/validaciones.module').then(m => m.ValidacionesModule)
+    loadChildren: () => import('./auth/validaciones.module').then(m => m.ValidacionesModule)
   },
   {
     path: '**',

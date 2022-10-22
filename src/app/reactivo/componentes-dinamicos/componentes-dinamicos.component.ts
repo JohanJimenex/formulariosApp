@@ -45,7 +45,7 @@ export class ComponentesDinamicosComponent implements OnInit {
 
 
   get arrFavoritos() {
-    return this.miForm.controls['juegosFavoritos'] as FormArray;
+    return this.miForm.controls['juegosFavoritos'] as FormArray; // para que pueda reconocerse como un arraye iterarlo en el DOM
     //otras formas
     // return this.miForm.get('juegosFavoritos')?.value ;
     // var x = this.miForm.get('juegosFavoritos') as FormArray;

@@ -16,9 +16,13 @@ const routes: Routes = [
     loadChildren: () => import('./auth/validaciones.module').then(m => m.ValidacionesModule)
   },
   {
+    path: 'pelis',
+    loadChildren: () => import('./johan/peliculas.module').then(m => m.PeliculasModule)
+  },
+  {
     path: '**',
     redirectTo: 'template'
-  }
+  },
 ];
 
 @NgModule({

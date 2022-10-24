@@ -4,7 +4,7 @@
 <div class="row">
        <col>
        <form action=""
-             autocomplete="false"
+             autocomplete="off"
              [formGroup]="miFormulario">
               <!-- Nombre -->
               <div class="row mb-3">
@@ -17,7 +17,7 @@
                             class="col-9">
 
                      <small class="text-danger"
-                            *ngIf="elCampoEsValido('nombre')">
+                            *ngIf="campoRequerido('nombre')">
                             Debe ser un formato
                             en Nombre y Apellido
                      </small>
@@ -35,9 +35,34 @@
                             class="col-sm-9">
 
                      <small class="text-danger"
-                            *ngIf="elCampoEsValido('email')">
-                            Correo no e svalido
+                            *ngIf="miFormulario.get('email')?.errors?.['required']">
+                            Correo es obligatorio
                      </small>
+
+                     <!-- *ngIf="miFormulario.get('email')?.errors?.['emailExiste']" -->
+                     <small class="text-danger"
+                            *ngIf="correoExiste()"
+                            >
+                            Correo ya existe
+
+                     </small>
+
+                     <small class="text-danger"
+                            *ngIf="miFormulario.get('email')?.errors?.['pattern']">
+                            Formato del correo invalido
+                     </small>
+
+                     <small class="text-danger"
+                     *ngIf="patronEmailInvalido()">
+                            Formato del correo invalido
+                     </small>
+
+                     <small class="text-danger">
+                        {{emailErroMsg}}
+                     </small>
+
+
+
               </div>
 
               <!-- usuario -->
@@ -63,6 +88,7 @@
                             class="col-sm-3">Password</label>
 
                      <input type="password"
+                     autocomplete="off"
                             id="password"
                             formControlName="password"
                             class="col-sm-9">
@@ -79,6 +105,8 @@
                             class="col-sm-3">Confirmar password</label>
 
                      <input type="password"
+                     autocomplete="off"
+
                             id="confirmarPassword"
                             formControlName="confirmarPassword"
                             class="col-sm-9">
@@ -93,7 +121,9 @@
                      <div class="col">
                             <button type="button"
                                     class="btn btn-primary float-end"
-                                    (click)="registrarse()">Registrarse</button>
+                                    (click)="registrarse()"
+                                    [disabled]="miFormulario.pending"
+                                    >Registrarse</button>
                      </div>
               </div>
        </form>
@@ -106,6 +136,7 @@
 
        <strong>Errores nombre:</strong> {{miFormulario.controls['nombre'].errors | json}} <br>
        <strong>Errores email:</strong> {{miFormulario.controls['email'].errors | json}} <br>
+       <strong>Errores email:</strong> {{miFormulario.status | json}} <br>
        <strong>Errores usuario:</strong> {{miFormulario.controls['usuario'].errors | json}} <br>
        <strong>Errores Password:</strong> {{miFormulario.controls['password'].errors | json}} <br>
        <strong>Errores confirmarPassword:</strong> {{miFormulario.controls['confirmarPassword'].errors | json}}
